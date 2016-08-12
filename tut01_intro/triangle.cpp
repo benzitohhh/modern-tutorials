@@ -27,7 +27,7 @@ int init_resources()
     "attribute vec2 coord2d;                  "
     "void main(void) {                        "
     "  gl_Position = vec4(coord2d, 0.0, 1.0); "
-    "}";
+	"}";  // vec4(xyCoord, z, h);
   glShaderSource(vs, 1, &vs_source, NULL);
   glCompileShader(vs);
   glGetShaderiv(vs, GL_COMPILE_STATUS, &compile_ok);
@@ -44,9 +44,9 @@ int init_resources()
     "#version 120\n"  // OpenGL 2.1
 #endif
     "void main(void) {        "
-    "  gl_FragColor[0] = 0.0; "
-    "  gl_FragColor[1] = 0.0; "
-    "  gl_FragColor[2] = 1.0; "
+    "  gl_FragColor[0] = gl_FragCoord.x/640.0; "
+    "  gl_FragColor[1] = gl_FragCoord.y/480.0; "
+    "  gl_FragColor[2] = 0.5; "
     "}";
   glShaderSource(fs, 1, &fs_source, NULL);
   glCompileShader(fs);
