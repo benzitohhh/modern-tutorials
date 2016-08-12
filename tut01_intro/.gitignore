@@ -1,0 +1,21 @@
+#### Ignore all files with no extension
+*
+!/**/
+!*.*
+!Makefile
+!makefile
+#######################################
+
+.DS_STORE
+book
+*.exe
+*.o
+*~
+*.stackdump
+TAGS
+*.dSYM
+*.so
+*.a
+*.log
+*.s
+.dir-locals.el
